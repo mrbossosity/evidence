@@ -1,6 +1,6 @@
 from setuptools import setup
 
-with open("README.md", "rb") as f:
+with open("README.md", "r") as f:
     long_descr = f.read()
 
 setup(
@@ -11,7 +11,7 @@ setup(
     long_description=long_descr,
     long_description_content_type="text/markdown", 
     entry_points = {
-        "console_scripts":["evidence = evidence-with-ease.evidence:main"]
+        "console_scripts":["evidence = evidence.__main__:main"]
     },
     install_requires=[
         "requests",

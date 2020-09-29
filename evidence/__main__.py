@@ -194,4 +194,5 @@ def getDownloadFolder():
 folder_select = Button(root, width=60, text="Choose download folder", command=getDownloadFolder)
 folder_select.grid(row=1, columnspan=2)
 
-root.mainloop()
+def main():
+    root.mainloop()
