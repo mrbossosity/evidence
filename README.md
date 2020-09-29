@@ -18,13 +18,9 @@ I'm currently in the process of learning how to properly distribute Python appli
   * [BeautifulSoup4](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
   * [PyPDF2](https://pypi.org/project/PyPDF2/) 
 
-If you have pip: 
+If you have pip, CD into the /dist directory and run: 
 
-`pip install requests lxml pdfkit beautifulsoup4 pypdf2`
-
-on Linux:
-
-`sudo pip3 install requests lxml pdfkit beautifulsoup4 pypdf2`
+`pip install -r requirements.txt` (substitute pip3 on Linux)
 
 ## Run
 To run the script, open your terminal, CD into the folder where you've downloaded the script, and run:
