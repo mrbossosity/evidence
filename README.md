@@ -23,7 +23,7 @@ If you have pip, CD into the /dist directory and run:
 `pip install -r requirements.txt` (substitute pip3 on Linux)
 
 ## Run
-To run the script, open your terminal, CD into the folder where you've downloaded the script, and run:
+To run the script, CD into /dist and run:
 
 `python evidence-with-ease.py` (python3 on Linux)
 
