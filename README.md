@@ -19,7 +19,7 @@ Evidence wth Ease was built in and requires >= Python 3, as well as the followin
   * [BeautifulSoup4](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
   * [PyPDF2](https://pypi.org/project/PyPDF2/) 
 
-If you have pip, CD into where-you/unzipped/the-package/evidence-master/dist and run: 
+If you have pip, CD into /where-you-unzipped-the-package/evidence-master/dist and run: 
 
 `pip install -r requirements.txt` (substitute pip3 on Linux)
 
