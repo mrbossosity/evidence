@@ -13,6 +13,13 @@ setup(
     entry_points = {
         "console-scripts":["evidence = evidence-with-ease.evidence:main"]
     },
+    install_requires=[
+        "requests",
+        "lxml",
+        "beautifulsoup4",
+        "pdfkit",
+        "PyPDF2"
+    ],
     author="mrbossosity",
     author_email="mrbossosity@gmail.com"
 )
