@@ -21,5 +21,6 @@ setup(
         "PyPDF2"
     ],
     author="mrbossosity",
-    author_email="mrbossosity@gmail.com"
+    author_email="mrbossosity@gmail.com",
+    url="https://github.com/mrbossosity/evidence"
 )
