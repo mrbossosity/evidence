@@ -20,11 +20,11 @@ I'm currently in the process of learning how to properly distribute Python appli
 
 If you have pip: 
 
-`pip install requests lxml pdfkit bs4 pypdf2`
+`pip install requests lxml pdfkit beautifulsoup4 pypdf2`
 
 on Linux:
 
-`sudo pip3 install requests lxml pdfkit bs4 pypdf2`
+`sudo pip3 install requests lxml pdfkit beautifulsoup4 pypdf2`
 
 ## Run
 To run the script, open your terminal, CD into the folder where you've downloaded the script, and run:
