@@ -10,7 +10,8 @@ Evidence with Ease utilizes the Python [Requests](https://requests.readthedocs.i
 You may be familiar with Chrome extensions such as CleanPrint which allow you to remove unnecessary images, headers, styling etc. from webpages to save ink and paper when printing. I created some functions with BeautifulSoup that remove ~80-90% of unwanted tags from the HTML as well as all Javascript and CSS styling before writing to file. It's not a perfect algorithm, and some pages are cleaner than others, but it does the job, and I daresay it does it adequately well.
 
 ## Installation and Dependencies
-I'm currently in the process of learning how to properly distribute Python applications. However, this program is only one script which you can download and run from your command line. The program was built in and requires Python 3, as well as the following dependencies:
+I'm currently in the process of learning how to properly distribute Python programs. In the meantime, simply download the .zip from Github and unzip it wherever it makes sense for you.  
+Evidence wth Ease was built in and requires >= Python 3, as well as the following dependencies:
 
   * [Requests](https://requests.readthedocs.io/en/master/)
   * [lxml](https://lxml.de/) (for faster HTML parsing)
@@ -27,7 +28,7 @@ To run the script, CD into /dist and run:
 
 `python evidence-with-ease.py` (python3 on Linux)
 
-The tkinter GUI will appear prompting you to paste the shared link to your G Doc and to choose your target download folder. Hit "Go!" and track the program's progress in the terminal printout. 
+The tkinter GUI will appear, prompting you to paste the shared link to your Google Doc and to choose your target download folder. Hit "Go!" and track the program's progress in the terminal printout. 
 
 ## Known Issues
 Removing Javascript from webpages breaks certain well-devloped sites which generate all page content dynamically, so some 'cleaned' files might not contain any article content at all. Furthermore, removing Javascript looks fishy to sites with good bot detection, so some pages may be blocked or Captcha-prompted. I haven't yet figured out a good way to identify when blocks happen and stop the program from downloading these blocked/Captcha'd pages, but by supplying a realistic user agent and other legitimate browser markers in the request header, I've managed to get around most blocks. In short, don't treat this program as the be-all end-all, and review the final PDF closely for any broken or blocked pages as you'll have to reprint these from the original sources yourself.
