@@ -10,19 +10,21 @@ Evidence with Ease utilizes the Python [Requests](https://requests.readthedocs.i
 You may be familiar with Chrome extensions such as CleanPrint which allow you to remove unnecessary images, headers, styling etc. from webpages to save ink and paper when printing. I created some functions with BeautifulSoup that remove ~80-90% of unwanted tags from the HTML as well as all Javascript and CSS styling before writing to file. It's not a perfect algorithm, and some pages are cleaner than others, but it does the job, and I daresay it does it adequately well.
 
 ## Installation and Dependencies
-I'm currently in the process of learning how to properly distribute Python applications. However, this program is only one script which you can download and run from your command line. The program was built in and requires Python 3, as well as the following dependencies which can be easily installed with pip:
+I'm currently in the process of learning how to properly distribute Python applications. However, this program is only one script which you can download and run from your command line. The program was built in and requires Python 3, as well as the following dependencies:
 
   * [Requests](https://requests.readthedocs.io/en/master/)
   * [lxml](https://lxml.de/) (for faster HTML parsing)
   * [pdfkit](https://pypi.org/project/pdfkit/) (note: also requires [wkhtmltopdf](https://wkhtmltopdf.org/downloads.html))
   * [BeautifulSoup4](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
   * [PyPDF2](https://pypi.org/project/PyPDF2/) 
-  
-`pip install requests lxml pdfkit bs4 pypdf2`
 
-or on Linux:
+If you have pip: 
 
-`sudo pip3 install requests lxml pdfkit bs4 pypdf2`
+`pip install requests lxml pdfkit beautifulsoup4 pypdf2`
+
+on Linux:
+
+`sudo pip3 install requests lxml pdfkit beautifulsoup4 pypdf2`
 
 ## Run
 To run the script, open your terminal, CD into the folder where you've downloaded the script, and run:
