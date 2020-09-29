@@ -18,7 +18,7 @@ I'm currently in the process of learning how to properly distribute Python appli
   * [BeautifulSoup4](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
   * [PyPDF2](https://pypi.org/project/PyPDF2/) 
 
-If you have pip, CD into the /dist directory and run: 
+If you have pip, CD into where-you/unzipped/the-package/evidence-master/dist and run: 
 
 `pip install -r requirements.txt` (substitute pip3 on Linux)
 
