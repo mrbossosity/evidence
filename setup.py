@@ -11,7 +11,7 @@ setup(
     long_description=long_descr,
     long_description_content_type="text/markdown", 
     entry_points = {
-        "console-scripts":["evidence = evidence-with-ease.evidence:main"]
+        "console_scripts":["evidence = evidence-with-ease.evidence:main"]
     },
     install_requires=[
         "requests",
