@@ -8,26 +8,34 @@ from bs4 import BeautifulSoup
 from PyPDF2 import PdfFileMerger, PdfFileReader, PdfFileWriter
 
 # important global variables:
-downloadFolder = False
-headers = {
-    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3",
-    "Accept-Encoding": "gzip",
-    "Accept-Language": "en-US,en;q=0.9,es;q=0.8",
-    "Upgrade-Insecure-Requests": "1",
-    "Referer": 'https://google.com',
-    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36"
-}
-file_paths = []
-failed_files = []
-pdfs_for_merge = []
-merger = PdfFileMerger(strict=False)
+def initVars():
+    global downloadFolder
+    downloadFolder = False
+    global headers
+    headers = {
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3",
+        "Accept-Encoding": "gzip",
+        "Accept-Language": "en-US,en;q=0.9,es;q=0.8",
+        "Upgrade-Insecure-Requests": "1",
+        "Referer": 'https://google.com',
+        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36"
+    }
+    global file_paths
+    file_paths = []
+    global failed_files
+    failed_files = []
+    global pdfs_for_merge
+    pdfs_for_merge = []
+    global merger
+    merger = PdfFileMerger(strict=False)
 
-# Functions to retrieve the Doc and scrape links:
+
+# Functions to retrieve the GDoc and scrape links:
 def getUrl():
     url = urlEntry.get()
     return url
 
-def getTitleAndUrls(url):
+def getTitleAndLinks(url):
     res = requests.get(url, headers=headers)
     print(res.status_code)
     g_doc_soup = BeautifulSoup(res.text, 'lxml')
@@ -157,9 +165,9 @@ def mergePDFs(pdfs):
 def runFuncs():
     if not downloadFolder == False: 
         url = getUrl()
-        titleAndURLs = getTitleAndUrls(url)
-        urls = titleAndURLs[0]
-        doc_title = titleAndURLs[1]
+        titleAndLinks = getTitleAndLinks(url)
+        urls = titleAndLinks[0]
+        doc_title = titleAndLinks[1]
         scrapeUrls(urls)
         makePDFlist(file_paths)
         mergePDFs(pdfs_for_merge)
@@ -186,7 +194,6 @@ def getDownloadFolder():
 
 folder_select = Button(root, width=60, text="Choose download folder", command=getDownloadFolder)
 folder_select.grid(row=1, columnspan=2)
-
 # Script entry point 
 def main():
     root.mainloop()
