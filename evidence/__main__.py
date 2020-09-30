@@ -1,12 +1,13 @@
 #!/usr/bin/python3
-import requests, re, os, pdfkit
+import re, os
 from tkinter import *
 from tkinter import filedialog
+
+import pdfkit, requests
 from bs4 import BeautifulSoup
 from PyPDF2 import PdfFileMerger, PdfFileReader, PdfFileWriter
 
-#   important global variables:
-
+# important global variables:
 downloadFolder = False
 headers = {
     "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3",
@@ -21,8 +22,7 @@ failed_files = []
 pdfs_for_merge = []
 merger = PdfFileMerger(strict=False)
 
-#   Functions to retrieve the Doc and scrape links:
-
+# Functions to retrieve the Doc and scrape links:
 def getUrl():
     url = urlEntry.get()
     return url
@@ -36,10 +36,8 @@ def getTitleAndUrls(url):
     urls = re.findall(r'(?<=ulnk_url":")(\S+?)(?="}})', res.text)
     return [urls, doc_title]
 
-#   Functions to be called 
-#   on each iteration through 
-#   links list:
-
+# Functions to be called on each 
+# iteration through links list:
 def removeTags(tag):
     [assessImportance(parent) for parent in tag.parents]
     if tag and not tag.find(['ul', 'ol']):
@@ -61,11 +59,8 @@ def writeFile(soup, url, title):
     except: 
         failed_files.append('CRAPCAKES! Could not save webpage: %s (%s). Go to website and print directly!' % (title, url))
 
-#   The Master Scraper
-#   to iterate through links--
-#   retrive, clean, and
-#   download HTML of each linked page:
-
+# Iterate through links list--retrive, clean, 
+# and download HTML of each linked page:
 def scrapeUrls(urls):
     for index, url in enumerate(urls):
         print('%s/%s %s' %(index + 1, len(urls), url))
@@ -90,9 +85,9 @@ def scrapeUrls(urls):
         except:
             failed_files.append('GOSHDARN! Could not download webpage %s. Visit URL and try to print from browser.' % url)
 
-#   Functions for making PDFs
-#   from HTML files:
 
+# Functions for making PDFs
+# from HTML files:
 def makePDF(index, file):
     try: 
         out = '%s/html%s.pdf' % (downloadFolder, index + 1)
@@ -129,9 +124,9 @@ def makePDFlist(file_paths):
             else: #don't waste paper
                 failed_files.append("WOWZERS! %s is over 30 pages long--don't bother printing it out! The file has already been saved for you in the target folder." % file)
 
-#   Functions for adding blanks 
-#   and merging all PDFs:
 
+# Functions for adding blanks 
+# and merging all PDFs:
 def addPage(pdf, reader, merger): 
     outPdf = PdfFileWriter()
     outPdf.appendPagesFromReader(reader)
@@ -157,10 +152,8 @@ def mergePDFs(pdfs):
             merger.append(pdf, import_bookmarks=False)
         os.remove(pdf)
 
-#   THE
-#   SUPREME
-#   RUN FUNCTION:
 
+# THE MASTER "GO!" FUNCTION:
 def runFuncs():
     if not downloadFolder == False: 
         url = getUrl()
@@ -176,8 +169,8 @@ def runFuncs():
     else:
         print('YIKES! Choose a download folder!')
 
-#   Simple Tkinter GUI:
 
+# Simple Tkinter GUI:
 root = Tk()
 
 urlEntry = Entry(root, width=50)
@@ -194,5 +187,6 @@ def getDownloadFolder():
 folder_select = Button(root, width=60, text="Choose download folder", command=getDownloadFolder)
 folder_select.grid(row=1, columnspan=2)
 
+# Script entry point 
 def main():
     root.mainloop()
