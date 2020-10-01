@@ -164,6 +164,7 @@ def mergePDFs(pdfs):
 # THE MASTER "GO!" FUNCTION:
 def runFuncs():
     if not downloadFolder == False: 
+        initVars()
         url = getUrl()
         titleAndLinks = getTitleAndLinks(url)
         urls = titleAndLinks[0]
