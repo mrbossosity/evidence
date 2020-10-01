@@ -5,7 +5,7 @@ with open("README.md", "r") as f:
 
 setup(
     name="evidence with ease",
-    version="1.1.2",
+    version="1.1.3",
     packages=["evidence"],
     description="A nifty Python tool for expediting evidence printing.",
     long_description=long_descr,
